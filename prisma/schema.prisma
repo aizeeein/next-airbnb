@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model testauth {
+  NIK      String @id @unique(map: "NIK") @db.VarChar(255)
+  NAMA     String @db.VarChar(255)
+  CABANG   String @db.VarChar(255)
+  EMAIL    String @unique(map: "EMAIL") @db.VarChar(255)
+  PASSWORD String @db.VarChar(255)
+}
